@@ -1,0 +1,100 @@
+const { DataTypes } = require('sequelize');
+import sequelize from '../database/connectDb';
+
+    const WetReport = sequelize.define("rtc_wet_report", {
+      supplier_id: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      station_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      staff_ID: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      staff_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      staff_email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      Create_At: {
+        type: DataTypes.DATE,
+        defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false,
+      },
+      Reported_At: {
+        type: DataTypes.DATEONLY,
+        defaultValue: new Date().toISOString().split('T')[0], 
+        allowNull: false,
+      },
+      report_status: {
+        type: DataTypes.ENUM('0','1'),
+        defaultValue: '0',
+        allowNull: false,
+      },
+      uploaded_At: {
+        type: DataTypes.DATE,
+        defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: true,
+      },
+      Totalkilograms: DataTypes.FLOAT,
+      total_combined: DataTypes.FLOAT,
+      discrepancy: DataTypes.TEXT,
+      cherry_volume_cherries: DataTypes.FLOAT,
+      cherry_avg_cherries: DataTypes.FLOAT,
+      cherry_last_price: DataTypes.FLOAT,
+      new_price: DataTypes.FLOAT,
+      volume_floaters: DataTypes.FLOAT,
+      avg_price_floaters: DataTypes.FLOAT,
+      date_cws_stop_buy: DataTypes.DATEONLY,
+      remained_volume: DataTypes.FLOAT,
+      labours: DataTypes.FLOAT,
+      picked_cherries: DataTypes.FLOAT,
+      red_cherries: DataTypes.FLOAT,
+      parch_disc: DataTypes.FLOAT,
+      delivered: DataTypes.FLOAT,
+      pach_table: DataTypes.FLOAT,
+      pach_tank: DataTypes.FLOAT,
+      pach_store: DataTypes.FLOAT,
+      certificate: DataTypes.STRING, // "Yes" or "No"
+      total_bucket: DataTypes.FLOAT,
+      bucket_disc: DataTypes.TEXT,
+      avg_price: DataTypes.FLOAT,
+      total_cherries: DataTypes.FLOAT,
+      salaries: DataTypes.FLOAT,
+      fuel_amount: DataTypes.FLOAT,
+      expense_amount: DataTypes.FLOAT,
+      man_power: DataTypes.FLOAT,
+      handsorter: DataTypes.FLOAT,
+      leftover: DataTypes.TEXT,
+      leftover_desc: DataTypes.TEXT,
+      leftover_image: DataTypes.STRING,
+      water: DataTypes.TEXT,
+      water_desc: DataTypes.TEXT,
+      water_image: DataTypes.STRING,
+      water_sufficient: DataTypes.STRING,
+      sufficient_desc: DataTypes.TEXT,
+      sufficient_image: DataTypes.STRING,
+      smell_desc: DataTypes.TEXT,
+      congestion_desc: DataTypes.TEXT,
+      congestion_image: DataTypes.STRING,
+      congestion_level: DataTypes.STRING,
+      appearance_desc: DataTypes.TEXT,
+      appearance_image: DataTypes.STRING,
+      view1: DataTypes.STRING,
+      view2: DataTypes.STRING,
+      view3: DataTypes.STRING,
+      view4: DataTypes.STRING,
+      Approval: DataTypes.STRING,
+      Approval_com: DataTypes.TEXT,
+      note: DataTypes.TEXT,
+      season: DataTypes.STRING, // if passed in payload
+    });
+module.exports = WetReport;
+  
+  
